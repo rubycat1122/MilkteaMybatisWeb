@@ -44,9 +44,24 @@ public class MemberService {
 //		return result;
 	}
 
+	public Member selectOneById(String memberId) {
+		Member member = mDao.selectOneById(conn, memberId);
+		return member;
+	}
+
 	public int insertMember(Member member) {
 		int result = mDao.insertMember(conn, member);
 		return result;
 	}
 
+	public int updateMember(Member member) {
+		int result = mDao.updateMember(conn, member);
+		return result;
+	}
+
+	public int deleteMember(String memberId) {
+		int result = mDao.deleteMember(conn, memberId);
+		return result;
+	}
+	
 }

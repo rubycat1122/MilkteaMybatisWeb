@@ -18,7 +18,16 @@
   <select id="selectOneByLogin" resultMap="memberResultMap">
   	select * from member_tbl where member_id = #{memberId} and member_pwd= #{memberPwd}
   </select>
+  <select id="selectOneById" resultMap="memberResultMap">
+  	select * from member_tbl where member_id = #{memberId}
+  </select>
   <insert id="insertMember">
   	INSERT INTO MEMBER_TBL VALUES(#{memberId},#{memberPwd},#{memberName},#{gender},#{age},#{email},#{phone},#{address},#{hobby},DEFAULT)
   </insert>
+  <update id="updateMember">
+  	update member_tbl set email=#{email}, phone=#{phone}, address=#{address},hobby=#{hobby} where member_id =#{memberId}
+  </update>
+  <delete id="deleteMember">
+  	delete from member_tbl where member_id = #{memberId}
+  </delete>
 </mapper>

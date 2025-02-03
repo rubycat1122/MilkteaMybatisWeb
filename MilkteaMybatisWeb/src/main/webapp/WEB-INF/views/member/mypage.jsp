@@ -6,10 +6,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>제주의 꿈 - 마이페이지</title>
-			<link rel ="stylesheet" href="../resources/CSS/reset.css">
-		    <link rel ="stylesheet" href="../resources/CSS/header.css">
-		    <link rel ="stylesheet" href="../resources/CSS/footer.css">
-		    <link rel ="stylesheet" href="../resources/CSS/mypage.css">
+		<link rel ="stylesheet" href="../resources/CSS/reset.css">
+	    <link rel ="stylesheet" href="../resources/CSS/header.css">
+	    <link rel ="stylesheet" href="../resources/CSS/footer.css">
+	    <link rel ="stylesheet" href="../resources/CSS/mypage.css">
 	</head>
 	<body>
 		<div id="container">
