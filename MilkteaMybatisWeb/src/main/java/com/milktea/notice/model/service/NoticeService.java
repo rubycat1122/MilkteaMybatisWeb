@@ -23,6 +23,11 @@ public class NoticeService {
 		return result;
 	}
 
+	public int updateNotice(Notice notice) {
+		int result = nDao.updateNotice(session, notice);
+		return result;
+	}
+
 	public int deleteNotice(int noticeNo) {
 		int result = nDao.deleteNotice(session, noticeNo);
 		return result;

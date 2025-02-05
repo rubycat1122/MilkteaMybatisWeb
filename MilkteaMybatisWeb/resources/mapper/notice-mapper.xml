@@ -18,6 +18,9 @@
  		insert into notice_tbl
  		values(seq_notice_no.nextval,#{noticeSubject},#{noticeContent},#{noticeWriter},default, default,#{attachmentName}, #{attachmentPath},default)
  	</insert>
+ 	<update id="updateNotice">
+ 		update notice_tbl set notice_subject = #{noticeSubject}, notice_content = #{noticeContent} where notice_no = #{noticeNo}
+ 	</update>
  	<delete id="deleteNotice">
  		delete from notice_tbl where notice_no =#{noticeNo}
  	</delete>

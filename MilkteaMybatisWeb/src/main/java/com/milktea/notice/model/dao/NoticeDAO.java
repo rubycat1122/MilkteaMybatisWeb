@@ -14,6 +14,11 @@ public class NoticeDAO {
 		return result;
 	}
 
+	public int updateNotice(SqlSession session, Notice notice) {
+		int result = session.update("NoticeMapper.updateNotice", notice);
+		return result;
+	}
+
 	public int deleteNotice(SqlSession session, int noticeNo) {
 		int result = session.delete("NoticeMapper.deleteNotice", noticeNo);
 		return result;
