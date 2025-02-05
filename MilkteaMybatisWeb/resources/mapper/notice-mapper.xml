@@ -3,8 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="NoticeMapper">
+ 	<resultMap type="Notice" id="noticeResultMap">
+ 		<id 	property="noticeNo" 	  column="NOTICE_NO"/>
+ 		<result property="noticeSubject"  column="NOTICE_SUBJECT"/>
+ 		<result property="noticeContent"  column="NOTICE_CONTENT"/>
+ 		<result property="noticeWriter"   column="NOTICE_WRITER"/>
+ 		<result property="writeDate" 	  column="WRITE_DATE"/>
+ 		<result property="viewCount" 	  column="VIEW_COUNT"/>
+ 		<result property="attachmentName" column="ATTACHMENT_NAME"/>
+ 		<result property="attachmentPath" column="ATTACHMENT_PATH"/>
+ 		<result property="attachmentDate" column="ATTACHMENT_DATE"/>
+ 	</resultMap>
  	<insert id="insertNotice">
  		insert into notice_tbl
  		values(seq_notice_no.nextval,#{noticeSubject},#{noticeContent},#{noticeWriter},default, default,#{attachmentName}, #{attachmentPath},default)
  	</insert>
+ 	<delete id="deleteNotice">
+ 		delete from notice_tbl where notice_no =#{noticeNo}
+ 	</delete>
+ 	<select id="selectListAll" resultMap="noticeResultMap">
+ 		select * from notice_tbl
+ 	</select>
+ 	<select id="selectOneByNo" resultMap="noticeResultMap">
+ 		select * from notice_tbl where notice_no= #{noticeNo}
+ 	</select>
  </mapper>

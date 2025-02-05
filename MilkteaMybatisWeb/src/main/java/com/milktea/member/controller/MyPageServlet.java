@@ -33,8 +33,12 @@ public class MyPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberService mService = new MemberService();
+		// HttpSession 객체를 가져옴
 		HttpSession session = request.getSession();
-		Member searchOne = (Member)session.getAttribute("result");
+		// 세션에 저장된 정보를 가져와야 함. getAttribute() 메서드 이용
+		Object obj = session.getAttribute("result");
+		// getAttribute() 메소드는 리턴형이 Object, 그런데 필요한 것은 Member이므로
+		Member searchOne = (Member)session.getAttribute("result"); // 멤버타입의 변수로 형변환
 		if(searchOne != null) {
 			String memberId = searchOne.getMemberId();
 			Member member = mService.selectOneById(memberId);
@@ -49,15 +53,8 @@ public class MyPageServlet extends HttpServlet {
 			}
 		}else {
 			NavigationUtil.navigateToError(request, response, "404", "로그인이 필요합니다.");
-//			request.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(request, response);
+			//request.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(request, response);
 		}
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 
 }
