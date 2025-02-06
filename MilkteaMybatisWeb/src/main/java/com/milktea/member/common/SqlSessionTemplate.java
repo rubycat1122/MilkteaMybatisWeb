@@ -18,7 +18,7 @@ public class SqlSessionTemplate {
 			is = Resources.getResourceAsStream(resource);
 			SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
 			SqlSessionFactory factory = builder.build(is);
-			session = factory.openSession(true);
+			session = factory.openSession(true); //true면 자동커밋 false면 수동커밋
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -33,8 +33,8 @@ public class NoticeService {
 		return result;
 	}
 
-	public List<Notice> selectListAll() {
-		List<Notice> nList = nDao.selectListAll(session);
+	public List<Notice> selectListAll(int currentPage) {
+		List<Notice> nList = nDao.selectListAll(session, currentPage);
 		return nList;
 	}
 
